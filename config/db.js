@@ -8,6 +8,14 @@ const pool = mysql.createConnection({
     password: process.env.DB_PASSWORD
 })
 
+pool.connect((error) => {
+    if (error) {
+        console.log(error)
+    }else {
+        console.log('Mysql is connected')
+    }
+})
 
 
-module.exports = pool.promise();
+
+module.exports = pool;
